@@ -7,11 +7,15 @@
 //
 
 #import "WFWeatherForecastService.h"
+#import "AFNetworking.h"
+#import "WFWeatherForecastResponse.h"
+
+NSString *const WFWeatherForecastServiceErrorDomain = @"WFWeatherForecastServiceErrorDomain";
 
 @interface WFWeatherForecastService ()
 
 @property (nonatomic, strong) WFWeatherForecastServiceConfig *config;
-@property (nonatomic, strong) NSURLSession *urlSession;
+@property (nonatomic, strong) AFHTTPRequestOperationManager *httpRequestOperationmanager;
 
 @end
 
@@ -21,14 +25,39 @@
 {
   if (!(self = [super init])) return nil;
   self.config = config;
-  NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
-  self.urlSession = [NSURLSession]
+  self.httpRequestOperationmanager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:[NSURL URLWithString:config.baseURL]];
+  self.httpRequestOperationmanager.operationQueue = [NSOperationQueue new];
+  [self requestWithResponseBlock:^(WFWeatherForecastResponse *response) {
+    
+  }];
   return self;
 }
 
-- (void)requestResponse:(void(^)())response
+- (void)requestWithResponseBlock:(void(^)(WFWeatherForecastResponse *response))responseBlock
 {
-  NSURLSession
+  NSParameterAssert(responseBlock != NULL);
+  [self.httpRequestOperationmanager GET:@"weather"
+                             parameters:[self requestParameters:@{@"q":@"London"}]
+                                success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+                                  responseBlock([[WFWeatherForecastResponse alloc] initWithResponseObject:responseObject]);
+  }
+                                failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+    responseBlock([[WFWeatherForecastResponse alloc] initWithError:error]);
+  }];
+}
+
+- (NSDictionary *)requestParameters:(NSDictionary *)parameters
+{
+  NSMutableDictionary *allParameters = [[self defaultRequestParameters] mutableCopy];
+  if (parameters != nil) {
+    [allParameters addEntriesFromDictionary:parameters];
+  }
+  return [allParameters copy];
+}
+
+- (NSDictionary *)defaultRequestParameters
+{
+  return @{@"appid": self.config.appID};
 }
 
 @end

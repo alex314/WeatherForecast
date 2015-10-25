@@ -15,6 +15,8 @@
 
 @end
 
+extern NSString *const WFWeatherForecastServiceErrorDomain;
+
 @interface WFWeatherForecastService : NSObject
 
 - (instancetype)initWithWeatherForecastServiceConfig:(WFWeatherForecastServiceConfig *)config;

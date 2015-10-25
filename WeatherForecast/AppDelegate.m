@@ -29,7 +29,7 @@
 - (void)setupWeatherForecastService
 {
   WFWeatherForecastServiceConfig *config = [WFWeatherForecastServiceConfig new];
-  config.baseURL = @"api.openweathermap.org/data/2.5/";
+  config.baseURL = @"http://api.openweathermap.org/data/2.5/";
   config.appID = @"bd82977b86bf27fb59a04b61b657fb6f";
   self.weatherForecastService = [[WFWeatherForecastService alloc] initWithWeatherForecastServiceConfig:config];
 }
