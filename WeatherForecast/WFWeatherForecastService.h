@@ -7,6 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
+
+@class WFWeatherForecastResponse;
 
 @interface WFWeatherForecastServiceConfig : NSObject
 
@@ -20,5 +23,10 @@ extern NSString *const WFWeatherForecastServiceErrorDomain;
 @interface WFWeatherForecastService : NSObject
 
 - (instancetype)initWithWeatherForecastServiceConfig:(WFWeatherForecastServiceConfig *)config;
+
+- (void)requestWeatherForecastForLocation:(CLLocationCoordinate2D)location
+                            responseBlock:(void(^)(WFWeatherForecastResponse *response))responseBlock;
+- (void)requestWeatherForecastForCity:(NSString *)city
+                        responseBlock:(void(^)(WFWeatherForecastResponse *response))responseBlock;
 
 @end

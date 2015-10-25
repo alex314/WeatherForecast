@@ -21,23 +21,42 @@ NSString *const WFWeatherForecastServiceErrorDomain = @"WFWeatherForecastService
 
 @implementation WFWeatherForecastService
 
+#pragma mark - Public
+
 - (instancetype)initWithWeatherForecastServiceConfig:(WFWeatherForecastServiceConfig *)config
 {
   if (!(self = [super init])) return nil;
   self.config = config;
   self.httpRequestOperationmanager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:[NSURL URLWithString:config.baseURL]];
   self.httpRequestOperationmanager.operationQueue = [NSOperationQueue new];
-  [self requestWithResponseBlock:^(WFWeatherForecastResponse *response) {
-    
-  }];
   return self;
 }
 
-- (void)requestWithResponseBlock:(void(^)(WFWeatherForecastResponse *response))responseBlock
+- (void)requestWeatherForecastForLocation:(CLLocationCoordinate2D)location
+                            responseBlock:(void(^)(WFWeatherForecastResponse *response))responseBlock
+{
+  NSString *latString = [NSString stringWithFormat:@"%.0f",round(location.latitude)];
+  NSString *lonString = [NSString stringWithFormat:@"%.0f",round(location.longitude)];
+  [self requestWeatherForecastWithParameters:[self requestParameters:@{@"lat":latString, @"lon":lonString}]
+                               responseBlock:responseBlock];
+}
+
+- (void)requestWeatherForecastForCity:(NSString *)city
+                        responseBlock:(void(^)(WFWeatherForecastResponse *response))responseBlock
+{
+  NSParameterAssert(city != nil);
+  [self requestWeatherForecastWithParameters:[self requestParameters:@{@"q":city}]
+                               responseBlock:responseBlock];
+}
+
+#pragma mark - Internal
+
+- (void)requestWeatherForecastWithParameters:(NSDictionary *)parameters
+                               responseBlock:(void(^)(WFWeatherForecastResponse *response))responseBlock
 {
   NSParameterAssert(responseBlock != NULL);
   [self.httpRequestOperationmanager GET:@"weather"
-                             parameters:[self requestParameters:@{@"q":@"London"}]
+                             parameters:parameters
                                 success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
                                   responseBlock([[WFWeatherForecastResponse alloc] initWithResponseObject:responseObject]);
   }
