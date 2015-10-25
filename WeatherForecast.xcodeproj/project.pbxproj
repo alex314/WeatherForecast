@@ -13,6 +13,7 @@
 		F658DA161BDCD36300FB1D43 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F658DA141BDCD36300FB1D43 /* Main.storyboard */; };
 		F658DA181BDCD36300FB1D43 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F658DA171BDCD36300FB1D43 /* Assets.xcassets */; };
 		F658DA1B1BDCD36300FB1D43 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F658DA191BDCD36300FB1D43 /* LaunchScreen.storyboard */; };
+		F658DA241BDCD71800FB1D43 /* WFWeatherForecastService.m in Sources */ = {isa = PBXBuildFile; fileRef = F658DA231BDCD71800FB1D43 /* WFWeatherForecastService.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		F658DA171BDCD36300FB1D43 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F658DA1A1BDCD36300FB1D43 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F658DA1C1BDCD36300FB1D43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F658DA221BDCD71800FB1D43 /* WFWeatherForecastService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFWeatherForecastService.h; sourceTree = "<group>"; };
+		F658DA231BDCD71800FB1D43 /* WFWeatherForecastService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFWeatherForecastService.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +70,8 @@
 				F658DA191BDCD36300FB1D43 /* LaunchScreen.storyboard */,
 				F658DA1C1BDCD36300FB1D43 /* Info.plist */,
 				F658DA0B1BDCD36300FB1D43 /* Supporting Files */,
+				F658DA221BDCD71800FB1D43 /* WFWeatherForecastService.h */,
+				F658DA231BDCD71800FB1D43 /* WFWeatherForecastService.m */,
 			);
 			path = WeatherForecast;
 			sourceTree = "<group>";
@@ -151,6 +156,7 @@
 			files = (
 				F658DA131BDCD36300FB1D43 /* ViewController.m in Sources */,
 				F658DA101BDCD36300FB1D43 /* AppDelegate.m in Sources */,
+				F658DA241BDCD71800FB1D43 /* WFWeatherForecastService.m in Sources */,
 				F658DA0D1BDCD36300FB1D43 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

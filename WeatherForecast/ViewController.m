@@ -7,11 +7,14 @@
 //
 
 #import "ViewController.h"
+#import "WFWeatherForecastService.h"
 
 @interface ViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *temperatureLabel;
 @property (strong, nonatomic) NSArray *locations;
+
+@property (weak, nonatomic) WFWeatherForecastService *weatherForecastService;
 
 @end
 
