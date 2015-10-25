@@ -10,11 +10,13 @@
 #import "WFWeatherForecastService.h"
 #import "WFWeatherForecastResponse.h"
 #import "WFWeatherForecastData.h"
+#import "WFLocationService.h"
 
 @interface WFMainViewController () <UITableViewDataSource, UITableViewDelegate>
 
 // UI
 @property (weak, nonatomic) IBOutlet UILabel *temperatureLabel;
+@property (weak, nonatomic) IBOutlet UITableView *locationsTableView;
 
 // Data
 @property (strong, nonatomic) NSArray *cities;
@@ -22,6 +24,7 @@
 
 // Services
 @property (strong, nonatomic) WFWeatherForecastService *weatherForecastService;
+@property (strong, nonatomic) WFLocationService *locationService;
 
 @end
 
@@ -31,6 +34,12 @@
 {
   [super viewDidLoad];
   [self loadLocations];
+  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(locationServiceCurrentLocationDidUpdateNotification:) name:WFLocationServiceCurrentLocationDidUpdateNotification object:self.locationService];
+}
+
+- (void)dealloc
+{
+  [[NSNotificationCenter defaultCenter] removeObserver:self name:WFLocationServiceCurrentLocationDidUpdateNotification object:nil];
 }
 
 - (void)loadLocations
@@ -80,6 +89,14 @@
   }
 }
 
+#pragma mark - 
+
+- (BOOL)isSelectedCurrentLocation
+{
+  NSIndexPath *selectedRow = [self.locationsTableView indexPathForSelectedRow];
+  return selectedRow == nil || selectedRow.row == 0;
+}
+
 #pragma mark - Loading weather forecast
 
 - (void)loadWeatherForecastForCity:(NSString *)city
@@ -95,17 +112,45 @@
 
 - (void)loadWeatherForecastForCurrentLocation
 {
-  
+  CLLocation *currentLocation = self.locationService.currentLocation;
+  if (currentLocation == nil) {
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil)
+                                                        message:NSLocalizedString(@"Cannot determine current location", nil)
+                                                       delegate:nil
+                                              cancelButtonTitle:NSLocalizedString(@"OK", nil)
+                                              otherButtonTitles:nil];
+    [alertView show];
+  } else {
+    self.temperatureLabel.text = NSLocalizedString(@"Loading...", nil);
+    __weak typeof(self) weakSelf = self;
+    [self.weatherForecastService requestWeatherForecastForLocation:currentLocation.coordinate responseBlock:^(WFWeatherForecastResponse *response) {
+      __strong typeof(weakSelf) strongSelf = weakSelf;
+      [strongSelf handleWeatherForecastResponse:response];
+    }];
+  }
 }
 
 - (void)handleWeatherForecastResponse:(WFWeatherForecastResponse *)response
 {
   if (response.error != nil) {
     self.temperatureLabel.text = NSLocalizedString(@"Error", nil);
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:response.error.localizedDescription delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil];
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil)
+                                                        message:response.error.localizedDescription
+                                                       delegate:nil
+                                              cancelButtonTitle:NSLocalizedString(@"OK", nil)
+                                              otherButtonTitles:nil];
     [alertView show];
   } else {
     self.temperatureLabel.text = [response.weatherForecastData.temperature stringValue];
+  }
+}
+
+#pragma mark - Notifications
+
+- (void)locationServiceCurrentLocationDidUpdateNotification:(NSNotification *)notification
+{
+  if ([self isSelectedCurrentLocation]) {
+    [self loadWeatherForecastForCurrentLocation];
   }
 }
 

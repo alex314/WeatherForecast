@@ -62,6 +62,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="locationsTableView" destination="4qm-On-pIZ" id="h2T-aG-z71"/>
                         <outlet property="temperatureLabel" destination="py1-Jn-2lp" id="ZRv-ep-vHo"/>
                     </connections>
                 </viewController>

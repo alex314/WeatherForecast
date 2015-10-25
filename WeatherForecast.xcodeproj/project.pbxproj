@@ -25,6 +25,7 @@
 		F658DA421BDCDD8C00FB1D43 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F658DA391BDCDD8C00FB1D43 /* AFURLSessionManager.m */; };
 		F658DA461BDCE32B00FB1D43 /* WFWeatherForecastResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = F658DA451BDCE32B00FB1D43 /* WFWeatherForecastResponse.m */; };
 		F658DA4C1BDCE3BA00FB1D43 /* WFWeatherForecastData.m in Sources */ = {isa = PBXBuildFile; fileRef = F658DA4B1BDCE3BA00FB1D43 /* WFWeatherForecastData.m */; };
+		F658DA531BDCEE2A00FB1D43 /* WFLocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = F658DA521BDCEE2A00FB1D43 /* WFLocationService.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +64,8 @@
 		F658DA451BDCE32B00FB1D43 /* WFWeatherForecastResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFWeatherForecastResponse.m; sourceTree = "<group>"; };
 		F658DA4A1BDCE3BA00FB1D43 /* WFWeatherForecastData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFWeatherForecastData.h; sourceTree = "<group>"; };
 		F658DA4B1BDCE3BA00FB1D43 /* WFWeatherForecastData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFWeatherForecastData.m; sourceTree = "<group>"; };
+		F658DA511BDCEE2A00FB1D43 /* WFLocationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFLocationService.h; sourceTree = "<group>"; };
+		F658DA521BDCEE2A00FB1D43 /* WFLocationService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFLocationService.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +99,7 @@
 		F658DA0A1BDCD36300FB1D43 /* WeatherForecast */ = {
 			isa = PBXGroup;
 			children = (
+				F658DA501BDCEE0B00FB1D43 /* LocationService */,
 				F658DA431BDCE2E200FB1D43 /* WebService */,
 				F658DA0E1BDCD36300FB1D43 /* AppDelegate.h */,
 				F658DA0F1BDCD36300FB1D43 /* AppDelegate.m */,
@@ -163,6 +167,15 @@
 				F658DA4B1BDCE3BA00FB1D43 /* WFWeatherForecastData.m */,
 			);
 			name = WebService;
+			sourceTree = "<group>";
+		};
+		F658DA501BDCEE0B00FB1D43 /* LocationService */ = {
+			isa = PBXGroup;
+			children = (
+				F658DA511BDCEE2A00FB1D43 /* WFLocationService.h */,
+				F658DA521BDCEE2A00FB1D43 /* WFLocationService.m */,
+			);
+			name = LocationService;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,6 +253,7 @@
 				F658DA101BDCD36300FB1D43 /* AppDelegate.m in Sources */,
 				F658DA3B1BDCDD8C00FB1D43 /* AFHTTPRequestOperationManager.m in Sources */,
 				F658DA3F1BDCDD8C00FB1D43 /* AFURLConnectionOperation.m in Sources */,
+				F658DA531BDCEE2A00FB1D43 /* WFLocationService.m in Sources */,
 				F658DA3A1BDCDD8C00FB1D43 /* AFHTTPRequestOperation.m in Sources */,
 				F658DA4C1BDCE3BA00FB1D43 /* WFWeatherForecastData.m in Sources */,
 				F658DA241BDCD71800FB1D43 /* WFWeatherForecastService.m in Sources */,
