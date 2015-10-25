@@ -6,10 +6,10 @@
 //  Copyright © 2015 Alexey Naumov. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "WFMainViewController.h"
 #import "WFWeatherForecastService.h"
 
-@interface ViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface WFMainViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *temperatureLabel;
 @property (strong, nonatomic) NSArray *locations;
@@ -18,7 +18,7 @@
 
 @end
 
-@implementation ViewController
+@implementation WFMainViewController
 
 - (void)viewDidLoad
 {

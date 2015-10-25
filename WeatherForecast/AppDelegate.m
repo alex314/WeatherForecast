@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "WFWeatherForecastService.h"
-#import "ViewController.h"
+#import "WFMainViewController.h"
 
 @interface AppDelegate ()
 

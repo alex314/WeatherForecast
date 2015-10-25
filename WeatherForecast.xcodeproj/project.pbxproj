@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		F658DA0D1BDCD36300FB1D43 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F658DA0C1BDCD36300FB1D43 /* main.m */; };
 		F658DA101BDCD36300FB1D43 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F658DA0F1BDCD36300FB1D43 /* AppDelegate.m */; };
-		F658DA131BDCD36300FB1D43 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F658DA121BDCD36300FB1D43 /* ViewController.m */; };
+		F658DA131BDCD36300FB1D43 /* WFMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F658DA121BDCD36300FB1D43 /* WFMainViewController.m */; };
 		F658DA161BDCD36300FB1D43 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F658DA141BDCD36300FB1D43 /* Main.storyboard */; };
 		F658DA181BDCD36300FB1D43 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F658DA171BDCD36300FB1D43 /* Assets.xcassets */; };
 		F658DA1B1BDCD36300FB1D43 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F658DA191BDCD36300FB1D43 /* LaunchScreen.storyboard */; };
@@ -21,8 +21,8 @@
 		F658DA0C1BDCD36300FB1D43 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F658DA0E1BDCD36300FB1D43 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F658DA0F1BDCD36300FB1D43 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		F658DA111BDCD36300FB1D43 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		F658DA121BDCD36300FB1D43 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		F658DA111BDCD36300FB1D43 /* WFMainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WFMainViewController.h; sourceTree = "<group>"; };
+		F658DA121BDCD36300FB1D43 /* WFMainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WFMainViewController.m; sourceTree = "<group>"; };
 		F658DA151BDCD36300FB1D43 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F658DA171BDCD36300FB1D43 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F658DA1A1BDCD36300FB1D43 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -63,8 +63,8 @@
 			children = (
 				F658DA0E1BDCD36300FB1D43 /* AppDelegate.h */,
 				F658DA0F1BDCD36300FB1D43 /* AppDelegate.m */,
-				F658DA111BDCD36300FB1D43 /* ViewController.h */,
-				F658DA121BDCD36300FB1D43 /* ViewController.m */,
+				F658DA111BDCD36300FB1D43 /* WFMainViewController.h */,
+				F658DA121BDCD36300FB1D43 /* WFMainViewController.m */,
 				F658DA141BDCD36300FB1D43 /* Main.storyboard */,
 				F658DA171BDCD36300FB1D43 /* Assets.xcassets */,
 				F658DA191BDCD36300FB1D43 /* LaunchScreen.storyboard */,
@@ -154,7 +154,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F658DA131BDCD36300FB1D43 /* ViewController.m in Sources */,
+				F658DA131BDCD36300FB1D43 /* WFMainViewController.m in Sources */,
 				F658DA101BDCD36300FB1D43 /* AppDelegate.m in Sources */,
 				F658DA241BDCD71800FB1D43 /* WFWeatherForecastService.m in Sources */,
 				F658DA0D1BDCD36300FB1D43 /* main.m in Sources */,
