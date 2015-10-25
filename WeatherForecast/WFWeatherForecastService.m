@@ -11,6 +11,7 @@
 @interface WFWeatherForecastService ()
 
 @property (nonatomic, strong) WFWeatherForecastServiceConfig *config;
+@property (nonatomic, strong) NSURLSession *urlSession;
 
 @end
 
@@ -20,7 +21,14 @@
 {
   if (!(self = [super init])) return nil;
   self.config = config;
+  NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
+  self.urlSession = [NSURLSession]
   return self;
+}
+
+- (void)requestResponse:(void(^)())response
+{
+  NSURLSession
 }
 
 @end
