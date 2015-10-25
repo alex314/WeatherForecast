@@ -11,10 +11,14 @@
 
 @interface WFMainViewController () <UITableViewDataSource, UITableViewDelegate>
 
+// UI
 @property (weak, nonatomic) IBOutlet UILabel *temperatureLabel;
+
+// Data
 @property (strong, nonatomic) NSArray *locations;
 
-@property (weak, nonatomic) WFWeatherForecastService *weatherForecastService;
+// Services
+@property (strong, nonatomic) WFWeatherForecastService *weatherForecastService;
 
 @end
 
