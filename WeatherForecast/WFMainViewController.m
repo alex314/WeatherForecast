@@ -141,7 +141,9 @@
                                               otherButtonTitles:nil];
     [alertView show];
   } else {
-    self.temperatureLabel.text = [response.weatherForecastData.temperature stringValue];
+    CGFloat kelvin = [response.weatherForecastData.temperature floatValue];
+    CGFloat celsius = kelvin - 273.15;
+    self.temperatureLabel.text = [NSString stringWithFormat:@"%.0f°C",celsius];
   }
 }
 
