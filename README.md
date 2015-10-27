@@ -4,7 +4,7 @@ __WeatherForecast__ is a simple iOS client app I've created as a part of a techn
 
 I was given only __2.5 hours__ for writing this project.
 
-You can check out what I ended up with, I haven't touched a line of code since the time ran out, although there are some issues I'd fix if I had a few more minutes.
+You can check out what I ended up with, I haven't touched a line of code since the time ran out, although there are some issues I'd have fixed if I had had a few more minutes.
 
 The initial task was as follows:
 
